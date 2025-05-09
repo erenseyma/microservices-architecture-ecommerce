@@ -1,17 +1,13 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
+﻿using ECommerce.Catalog.Entities;
 
-namespace ECommerce.Catalog.Entities
+namespace ECommerce.Catalog.Dtos.ProductDetailDtos
 {
-    public class ProductDetail
+    public class GetByIdProductDetailDto
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string ProductDetailId { get; set; }
         public string ProductDescription { get; set; }
         public string ProductInfo { get; set; }
         public string ProductId { get; set; }
-        [BsonIgnore]
         public Product Product { get; set; }
     }
 }
