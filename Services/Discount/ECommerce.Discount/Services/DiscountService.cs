@@ -55,7 +55,7 @@ namespace ECommerce.Discount.Services
             parameters.Add("@couponId", id);
             using (var connection = _dapperContext.CreateConnection())
             {
-                var values = await connection.QueryFirstOrDefaultAsync<GetByIdDiscountCouponDto>(query);
+                var values = await connection.QueryFirstOrDefaultAsync<GetByIdDiscountCouponDto>(query,parameters);
                 return values;
             }
         }
@@ -68,6 +68,7 @@ namespace ECommerce.Discount.Services
             paramaters.Add("@rate", updateCouponDto.Rate);
             paramaters.Add("@isActive", updateCouponDto.IsActive);
             paramaters.Add("@validDate", updateCouponDto.validDate);
+            paramaters.Add("@couponId", updateCouponDto.CouponId);
             using (var connection = _dapperContext.CreateConnection())
             {
                 await connection.ExecuteAsync(query, paramaters);
